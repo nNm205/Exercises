@@ -1,0 +1,106 @@
+1. 
+bool isA = (90 <= grade <= 100);
+
+Dòng lệnh trên sẽ kiểm tra xem grade có thỏa mãn điều kiện >= 90 và <= 100 không. Nếu đúng thì biến isA sẽ được gán bằng TRUE, ngược lại gán bằng FALSE.
+
+2. 
+double x = (double) (3/5);
+cout << x;
+
+Dòng lệnh trên in ra 0;
+
+3.
+int x = 65536;
+long y = x * x;
+cout << y;
+
+Đoạn lệnh trên không in ra 4294967296 = 2^32 vì biến x là biến kiểu INT có giới hạn là 
+[-2^31, 2^31 - 1]. Trong khi đó x = 65536 = 2^16 nên x*x = 2^32 => vượt quá giới hạn của biến kiểu INT dẫn đến kết quả bị sai.
+
+4.
+(sqrt(2) * sqrt(2) == 2)
+
+Biểu thức trên có giá trị là FALSE. 
+
+5.
+#include<bits/stdc++.h>
+using namespace std;
+
+int divideByZero(int n){
+    return n / 0;
+}
+
+int main() {
+    int n; 
+    cin >> n;
+    cout << divideByZero(n);
+    return 0;
+}
+
+ERROR: Runtime error
+
+6.
+int a = 27 * "three";
+ERROR: invalid operands of types 'int' and 'const char [6]' to binary 'operator*'.
+
+7.
+
+int threeInt = 3;
+int fourInt  = 4;
+double threeDouble = 3.0;
+double fourDouble  = 4.0;
+cout << threeInt / fourInt << endl;
+cout << threeInt / fourDouble << endl;
+cout << threeDouble / fourInt << endl;
+cout << threeDouble / fourDouble << endl;
+
+OUTPUT: 
+0
+0.75
+0.75
+0.75
+
+8.
+int  arg1;
+arg1 = -1;
+int x, y, z;
+char myDouble = '5';
+char arg1 = 'A';
+cout << arg1 << "\n";
+return 0;
+
+ERROR: conflicting declaration ‘char arg1’
+
+9.
+int arg1;
+arg1 = -1;
+{
+     char arg1 = 'A'; 
+     cout << arg1 << "\n"; 
+} 
+return 0; 
+
+Khi ở bên trong khối lệnh con, định danh arg1 chỉ tới biến arg1 = 'A';
+
+10.
+int arg1;
+arg1 = -1;
+{
+    char arg1 = 'A'; 
+} 
+cout << arg1 << "\n"; 
+return 0; 
+
+Khi ra khỏi khối lệnh con, định danh arg1 chỉ tới biến arg1 = -1.
+
+11.
+double C = (F - 32) * (5 / 9);
+Dòng lệnh này sai vì chưa ép kiểu double cho (5 / 9) thành double => kết quả sẽ luôn ra 0.
+
+12.
+if (10 > 5); 
+else; {           
+     cout << "Here";
+};
+
+OUTPUT: HERE.
